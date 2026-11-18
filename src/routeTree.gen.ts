@@ -10,33 +10,141 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ContactoRouteImport } from './routes/contacto'
+import { Route as EmpresasRouteImport } from './routes/empresas'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as SobreMiRouteImport } from './routes/sobre-mi'
+import { Route as CursosIndexRouteImport } from './routes/cursos.index'
+import { Route as CursosSlugRouteImport } from './routes/cursos.$slug'
+import { Route as RecursosIndexRouteImport } from './routes/recursos.index'
+import { Route as RecursosSlugRouteImport } from './routes/recursos.$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ContactoRoute = ContactoRouteImport.update({
+  id: '/contacto',
+  path: '/contacto',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EmpresasRoute = EmpresasRouteImport.update({
+  id: '/empresas',
+  path: '/empresas',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SobreMiRoute = SobreMiRouteImport.update({
+  id: '/sobre-mi',
+  path: '/sobre-mi',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CursosIndexRoute = CursosIndexRouteImport.update({
+  id: '/cursos/',
+  path: '/cursos/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CursosSlugRoute = CursosSlugRouteImport.update({
+  id: '/cursos/$slug',
+  path: '/cursos/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RecursosIndexRoute = RecursosIndexRouteImport.update({
+  id: '/recursos/',
+  path: '/recursos/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RecursosSlugRoute = RecursosSlugRouteImport.update({
+  id: '/recursos/$slug',
+  path: '/recursos/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/contacto': typeof ContactoRoute
+  '/empresas': typeof EmpresasRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/sobre-mi': typeof SobreMiRoute
+  '/cursos/$slug': typeof CursosSlugRoute
+  '/recursos/$slug': typeof RecursosSlugRoute
+  '/cursos/': typeof CursosIndexRoute
+  '/recursos/': typeof RecursosIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/contacto': typeof ContactoRoute
+  '/empresas': typeof EmpresasRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/sobre-mi': typeof SobreMiRoute
+  '/cursos/$slug': typeof CursosSlugRoute
+  '/recursos/$slug': typeof RecursosSlugRoute
+  '/cursos': typeof CursosIndexRoute
+  '/recursos': typeof RecursosIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/contacto': typeof ContactoRoute
+  '/empresas': typeof EmpresasRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/sobre-mi': typeof SobreMiRoute
+  '/cursos/$slug': typeof CursosSlugRoute
+  '/recursos/$slug': typeof RecursosSlugRoute
+  '/cursos/': typeof CursosIndexRoute
+  '/recursos/': typeof RecursosIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/contacto'
+    | '/empresas'
+    | '/sitemap.xml'
+    | '/sobre-mi'
+    | '/cursos/$slug'
+    | '/recursos/$slug'
+    | '/cursos/'
+    | '/recursos/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/contacto'
+    | '/empresas'
+    | '/sitemap.xml'
+    | '/sobre-mi'
+    | '/cursos/$slug'
+    | '/recursos/$slug'
+    | '/cursos'
+    | '/recursos'
+  id:
+    | '__root__'
+    | '/'
+    | '/contacto'
+    | '/empresas'
+    | '/sitemap.xml'
+    | '/sobre-mi'
+    | '/cursos/$slug'
+    | '/recursos/$slug'
+    | '/cursos/'
+    | '/recursos/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ContactoRoute: typeof ContactoRoute
+  EmpresasRoute: typeof EmpresasRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  SobreMiRoute: typeof SobreMiRoute
+  CursosSlugRoute: typeof CursosSlugRoute
+  RecursosSlugRoute: typeof RecursosSlugRoute
+  CursosIndexRoute: typeof CursosIndexRoute
+  RecursosIndexRoute: typeof RecursosIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +156,75 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/contacto': {
+      id: '/contacto'
+      path: '/contacto'
+      fullPath: '/contacto'
+      preLoaderRoute: typeof ContactoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/empresas': {
+      id: '/empresas'
+      path: '/empresas'
+      fullPath: '/empresas'
+      preLoaderRoute: typeof EmpresasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sobre-mi': {
+      id: '/sobre-mi'
+      path: '/sobre-mi'
+      fullPath: '/sobre-mi'
+      preLoaderRoute: typeof SobreMiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cursos/': {
+      id: '/cursos/'
+      path: '/cursos'
+      fullPath: '/cursos/'
+      preLoaderRoute: typeof CursosIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cursos/$slug': {
+      id: '/cursos/$slug'
+      path: '/cursos/$slug'
+      fullPath: '/cursos/$slug'
+      preLoaderRoute: typeof CursosSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/recursos/': {
+      id: '/recursos/'
+      path: '/recursos'
+      fullPath: '/recursos/'
+      preLoaderRoute: typeof RecursosIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/recursos/$slug': {
+      id: '/recursos/$slug'
+      path: '/recursos/$slug'
+      fullPath: '/recursos/$slug'
+      preLoaderRoute: typeof RecursosSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ContactoRoute: ContactoRoute,
+  EmpresasRoute: EmpresasRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
+  SobreMiRoute: SobreMiRoute,
+  CursosSlugRoute: CursosSlugRoute,
+  RecursosSlugRoute: RecursosSlugRoute,
+  CursosIndexRoute: CursosIndexRoute,
+  RecursosIndexRoute: RecursosIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
